@@ -10,7 +10,7 @@ The quick way:
 
 ::
 
-    pip install scrapy_status_mailer
+    pip install scrapy-status-mailer
 
 Or install from GitHub:
 
