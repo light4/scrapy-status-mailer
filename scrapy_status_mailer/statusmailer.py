@@ -59,6 +59,7 @@ class StatusMailer(object):
         self.num_errors = 0
         self.num_dropped = 0
         self.stats = crawler.stats
+        self.bots_name = crawler.settings.get('BOTS_SEND_EMAIL')
 
     @classmethod
     def from_crawler(cls, crawler, *args, **kwargs):
@@ -111,6 +112,8 @@ class StatusMailer(object):
         self.files[spider.name + '.log'].write(str(request) + '\n')
 
     def spider_closed(self, spider, reason):
+        if self.bots_name and spider.name not in self.bots_name:
+            return
         files = []
         self.finish_time = datetime.datetime.now()
         self.used_time = self.finish_time - self.start_time

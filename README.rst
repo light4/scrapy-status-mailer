@@ -51,6 +51,9 @@ settings for send email
         'scrapy_status_mailer.StatusMailer': 80,
     }
 
+    # all bots send email by default
+    # BOTS_SEND_EMAIL = ['first_bot', 'second_bot']
+
 Thanks
 ------
 
